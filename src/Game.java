@@ -2,7 +2,7 @@ import gameParameters.GameParameters;
 
 public class Game {
 
-  public int gameTime;
+  public int gameTime = 0;
 
   public void setParams(){
     GameParameters gameParameters = new GameParameters();  
@@ -13,7 +13,7 @@ public class Game {
   }
 
   public boolean notFinished () {
-    return !GameParameters.finished;
+    return gameTime < 100;
   }
 
 

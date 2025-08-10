@@ -28,6 +28,10 @@ public class Goblin extends Enemy implements canChangeAttackDamage {
 
   public void decreaseHitPoints(int amount) {
     this.hitPoints -= amount;
+
+    if (hitPoints < 0) {
+      hitPoints = 0;
+    }
   }
 
   /**
