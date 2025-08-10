@@ -1,6 +1,6 @@
 import gameElements.Position;
 import gameElements.Turret;
-import interfaces.EnemyBluePrint;
+import gameElements.enemies.templates.EnemyBluePrint;
 
 import java.util.ArrayList;
 

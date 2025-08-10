@@ -16,8 +16,7 @@ public class Game {
     return !GameParameters.finished;
   }
 
-  public void start() {
-  }
+
 
   public void repaint() {
   }
