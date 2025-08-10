@@ -4,7 +4,7 @@ public abstract class EnemyBluePrint {
   int maxHP;
   int hitPoints;
   int minimumAttackDamage;
-  private double averageAttackDamage;
+  double averageAttackDamage;
   int maximumAttackDamage;
 
   public EnemyBluePrint(){}
