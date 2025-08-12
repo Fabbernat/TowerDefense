@@ -1,3 +1,5 @@
+package notCategorizedYet;
+
 import gameParameters.GameParameters;
 
 public class Game {
