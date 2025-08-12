@@ -7,9 +7,9 @@ public class Upgrades {
 
   public enum UpgradeType {
     ARCHER,
+    BARRACK,
     MAGE,
     BOMBARDIER,
-    BARRACK,
     FIRST_SPELL,
     SECOND_SPELL
   }
@@ -39,8 +39,35 @@ public class Upgrades {
     }
   }
 
-  public int getArcherUpgradeLevel() {
+  /**
+   *
+   * @return all of the upgrades
+   */
+  public EnumMap<UpgradeType, Integer> getUpgradeLevels() {
+    return upgradeLevels;
+  }
+
+  /**
+   *
+   * And these six @return the types one by one
+   */
+  public int getARCHERUpgradeLevel() {
     return upgradeLevels.get(UpgradeType.ARCHER);
+  }
+  public int getBARRACKUpgradeLevel() {
+    return upgradeLevels.get(UpgradeType.BARRACK);
+  }
+  public int getMAGEUpgradeLevel() {
+    return upgradeLevels.get(UpgradeType.MAGE);
+  }
+  public int getBOMBARDIERUpgradeLevel() {
+    return upgradeLevels.get(UpgradeType.BOMBARDIER);
+  }
+  public int getFIRST_SPELLUpgradeLevel() {
+    return upgradeLevels.get(UpgradeType.FIRST_SPELL);
+  }
+  public int getSECOND_SPELLUpgradeLevel() {
+    return upgradeLevels.get(UpgradeType.SECOND_SPELL);
   }
 
   public void reset() {
