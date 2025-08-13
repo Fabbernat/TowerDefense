@@ -1,19 +1,15 @@
-package levelsElements.enemies.templates;
+package levelsElements.allies.templates;
 
-public abstract class EnemyBluePrint {
+public abstract class SoldierBluePrint {
   int maxHP;
   int hitPoints;
   double averageAttackDamage;
   int minimumAttackDamage;
   int maximumAttackDamage;
-  int speedInNodes = 3;
-  double physicalArmor = 0;
-  double magicArmor = 0;
+  int speedInNodes = 6;
+  double physicalArmor;
 
-  public EnemyBluePrint(){}
-
-
-  public EnemyBluePrint(int maxHP, int averageAttackDamage) {
+  public SoldierBluePrint(int maxHP, int averageAttackDamage) {
     this.maxHP = maxHP;
     this.hitPoints = maxHP;
     this.averageAttackDamage = averageAttackDamage;
@@ -21,7 +17,7 @@ public abstract class EnemyBluePrint {
     this.maximumAttackDamage = (int) (averageAttackDamage * 1.2);
   }
 
-  public EnemyBluePrint(int maxHP, int minimumAttackDamage, int maximumAttackDamage) {
+  public SoldierBluePrint(int maxHP, int minimumAttackDamage, int maximumAttackDamage) {
     this.maxHP = maxHP;
     this.hitPoints = maxHP;
     this.minimumAttackDamage = minimumAttackDamage;

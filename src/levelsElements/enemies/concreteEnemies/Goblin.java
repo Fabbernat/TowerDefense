@@ -11,6 +11,9 @@ public class Goblin extends Enemy implements canChangeAttackDamage {
   private int minimumAttackDamage = 2;
   private double averageAttackDamage = 4;
   private int maximumAttackDamage = 6;
+  int speedInNodes = 5;
+  double physicalArmor = 0;
+  double magicArmor = 0;
 
   public Goblin(){}
 
