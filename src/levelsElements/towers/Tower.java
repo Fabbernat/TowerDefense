@@ -1,6 +1,8 @@
 package levelsElements.towers;
 
 public abstract class Tower {
+  private static final double refundModifyer = 0.7;
+
   final Type type;
   int cost;
   int sellRefund;
@@ -24,5 +26,9 @@ public abstract class Tower {
 
   public int getLevel() {
     return level;
+  }
+
+  public static int setSellRefundBy(int cost) {
+    return (int) (cost * refundModifyer);
   }
 }

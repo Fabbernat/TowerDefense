@@ -1,6 +1,6 @@
 package notCategorizedYet;
 
-import levelsElements.Position;
+import levelsElements.enemies.position.EnemyPosition;
 import levelsElements.towers.Tower;
 import levelsElements.enemies.templates.EnemyBluePrint;
 
@@ -9,6 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LevelState {
-  Map<EnemyBluePrint, Position> enemies = new HashMap<>();
+  Map<EnemyBluePrint, EnemyPosition> enemies = new HashMap<>();
   ArrayList<Tower> turrets = new ArrayList<>();
 }
