@@ -1,4 +1,4 @@
-package gameElements;
+package levelsElements;
 
 public class Position {
   public int x;

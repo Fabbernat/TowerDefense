@@ -1,8 +1,8 @@
-package gameElements.enemies.concreteEnemies;
+package levelsElements.enemies.concreteEnemies;
 
-import gameElements.enemies.templates.Enemy;
-import gameElements.enemies.templates.EnemyAttackDamageChanger;
-import gameElements.enemies.traits.canChangeAttackDamage;
+import levelsElements.enemies.templates.Enemy;
+import levelsElements.enemies.templates.EnemyAttackDamageChanger;
+import levelsElements.enemies.traits.canChangeAttackDamage;
 
 public class Goblin extends Enemy implements canChangeAttackDamage {
 
@@ -38,16 +38,18 @@ public class Goblin extends Enemy implements canChangeAttackDamage {
    @param percentage must be an integer, so 10 means a 10 percent boost to damage and 200 means 200% more damage
    */
   @Override
-  public void increaseAttackDamage(int percentage) {
+  public Goblin increaseAttackDamage(int percentage) {
     EnemyAttackDamageChanger.increaseAttackDamage(this, percentage);
+    return this;
   }
 
   /**
    @param percentage must be an integer between 0 and 100. 10 means a 10 percent decrease to damage and 100 means 0 damage - no damage at all.
    */
   @Override
-  public void decreaseAttackDamage(int percentage) {
+  public Goblin decreaseAttackDamage(int percentage) {
     EnemyAttackDamageChanger.decreaseAttackDamage(this, percentage);
+    return this;
   }
 
   @Override

@@ -1,6 +1,4 @@
-package gameElements.enemies.templates;
-
-import gameElements.enemies.traits.canChangeAttackDamage;
+package levelsElements.enemies.templates;
 
 public class EnemyAttackDamageChanger {
   private int maxHP;

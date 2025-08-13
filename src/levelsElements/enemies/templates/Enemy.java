@@ -1,4 +1,4 @@
-package gameElements.enemies.templates;
+package levelsElements.enemies.templates;
 
 public abstract class Enemy extends EnemyBluePrint {
 

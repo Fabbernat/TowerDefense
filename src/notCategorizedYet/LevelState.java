@@ -1,11 +1,14 @@
 package notCategorizedYet;
 
-import gameElements.Turret;
-import gameElements.enemies.templates.EnemyBluePrint;
+import levelsElements.Position;
+import levelsElements.Turret;
+import levelsElements.enemies.templates.EnemyBluePrint;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LevelState {
-  ArrayList<EnemyBluePrint> enemies = new ArrayList<>();
+  Map<EnemyBluePrint, Position> enemies = new HashMap<>();
   ArrayList<Turret> turrets = new ArrayList<>();
 }
