@@ -1,4 +1,4 @@
-enum Alias {
+enum Graphics {
   LOADING_SCREEN("views/loadingScreen.png"),
   MAIN_MENU("views/mainMenu.png"),
   WORLD_MAP("views/worldMap.png"),
@@ -13,7 +13,7 @@ enum Alias {
 
   private final String path;
 
-  Alias(String path) {
+  Graphics(String path) {
     this.path = path;
   }
 

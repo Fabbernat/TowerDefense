@@ -7,6 +7,7 @@ public abstract class Enemy extends EnemyBluePrint {
   int minimumAttackDamage;
   double averageAttackDamage;
   int maximumAttackDamage;
+
   int speedInNodes = 3;
   double physicalArmor = 0;
   double magicArmor = 0;
@@ -31,4 +32,6 @@ public abstract class Enemy extends EnemyBluePrint {
             ", maximumAttackDamage=" + maximumAttackDamage +
             '}';
   }
+
+
 }
