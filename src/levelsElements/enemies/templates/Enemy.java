@@ -2,8 +2,8 @@ package levelsElements.enemies.templates;
 
 public abstract class Enemy extends EnemyBluePrint {
 
-  private int maxHP;
-  private int hitPoints;
+  int maxHP;
+  int hitPoints;
   int minimumAttackDamage;
   double averageAttackDamage;
   int maximumAttackDamage;
@@ -20,6 +20,44 @@ public abstract class Enemy extends EnemyBluePrint {
 
   public Enemy(final int maxHP, int minimumAttackDamage, int maximumAttackDamage) {
     super(maxHP, minimumAttackDamage, maximumAttackDamage);
+  }
+
+  public void setAverageAttackDamage(double damage) {
+    this.averageAttackDamage = damage;
+  }
+  public void setMinimumAttackDamage(int damage) {
+    this.minimumAttackDamage = damage;
+  }
+  public void setMaximumAttackDamage(int damage) {
+    this.maximumAttackDamage = damage;
+  }
+
+  public void increaseHitPoints(int amount) {
+    this.hitPoints += amount;
+
+    if (hitPoints > maxHP) {
+      hitPoints = maxHP;
+    }
+  }
+
+  public void decreaseHitPoints(int amount) {
+    this.hitPoints -= amount;
+
+    if (hitPoints < 0) {
+      hitPoints = 0;
+    }
+  }
+
+  public double getAverageAttackDamage() {
+    return averageAttackDamage;
+  }
+
+  public int getMinimumAttackDamage() {
+    return minimumAttackDamage;
+  }
+
+  public int getMaximumAttackDamage() {
+    return maximumAttackDamage;
   }
 
   @Override

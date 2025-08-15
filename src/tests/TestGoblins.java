@@ -1,10 +1,12 @@
+package tests;
+
 import levelsElements.enemies.concreteEnemies.Goblin;
 import levelsElements.enemies.templates.Enemy;
 import notCategorizedYet.Starter;
 
 import java.util.ArrayList;
 
-public class Main {
+public class TestGoblins {
 
 
 
@@ -15,10 +17,10 @@ public class Main {
     enemies.add(dobby);
 
     Goblin sipor = new Goblin();
-    sipor.decreaseAttackDamage(100);
+    sipor = (Goblin) sipor.decreaseAttackDamage(sipor,100);
     System.out.println(sipor);
 
-    sipor.increaseAttackDamage(200);
+    sipor = (Goblin) sipor.increaseAttackDamage(sipor,200);
     System.out.println(sipor);
 
     System.out.println(sipor.getHitPoints());
@@ -34,8 +36,8 @@ public class Main {
     enemies.add(sipor);
 
 
-//    for (Enemy enemy : enemies){
-//      System.out.println(enemy);
-//    }
+    for (Enemy enemy : enemies){
+      System.out.println(enemy);
+    }
   }
 }

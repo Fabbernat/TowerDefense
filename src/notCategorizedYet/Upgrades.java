@@ -1,17 +1,46 @@
 package notCategorizedYet;
 
+import java.util.Arrays;
 import java.util.EnumMap;
 
 public class Upgrades {
   final int MAX_UPGRADE_LEVEL = 6;
 
   public enum UpgradeType {
-    ARCHER,
-    BARRACK,
-    MAGE,
-    BOMBARDIER,
-    FIRST_SPELL,
-    SECOND_SPELL
+    ARCHER(1, 1, 2, 2, 3, 3),
+    BARRACK(1, 1, 2, 2, 3, 3),
+    MAGE(1, 1, 2, 2, 3, 3),
+    BOMBARDIER(1, 1, 2, 3, 3, 3),
+    FIRST_SPELL(1, 1, 2, 2, 3, 3),
+    SECOND_SPELL(2, 2, 3, 3, 3, 4);
+
+    private final int[] costs;
+
+    UpgradeType(int... costs) {
+      this.costs = costs;
+    }
+
+    public int[] getCosts() {
+      return costs;
+    }
+
+    public int getCostAtLevel(int level) {
+      if (level < 1 || level > costs.length) {
+        throw new IllegalArgumentException("Invalid upgrade level: " + level);
+      }
+      return costs[level - 1];
+    }
+
+    // --- total stars across ALL upgrades ---
+    public static final int totalStarsAvailable;
+
+    static {
+      int total = 0;
+      for (UpgradeType type : values()) {
+        total += Arrays.stream(type.costs).sum();
+      }
+      totalStarsAvailable = total;
+    }
   }
 
   private final EnumMap<UpgradeType, Integer> upgradeLevels = new EnumMap<>(UpgradeType.class);
@@ -75,5 +104,10 @@ public class Upgrades {
       upgradeLevels.put(type, 0);
     }
 
+  }
+
+  public static void main(String[] args) {
+    System.out.println(Upgrades.UpgradeType.ARCHER.getCostAtLevel(3)); // 2
+    System.out.println(Upgrades.UpgradeType.totalStarsAvailable);      // 78
   }
 }

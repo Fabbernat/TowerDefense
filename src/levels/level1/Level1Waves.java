@@ -48,7 +48,7 @@ public class Level1Waves extends Waves {
                           new EnemySpawn(Goblin.class, 0.5),
                           new EnemySpawn(Goblin.class, 0.5)
                   ),
-                  0
+                  15
           ),
 
           // Wave 4
@@ -63,46 +63,46 @@ public class Level1Waves extends Waves {
                           new EnemySpawn(Goblin.class, 0.7),
                           new EnemySpawn(Goblin.class, 0.7)
                   ),
-                  0
+                  20
           ),
 
           // Wave 5
           new Wave(
                   List.of(
                           new EnemySpawn(Orc.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Orc.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Orc.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0)
+                          new EnemySpawn(Goblin.class, 2.5),
+                          new EnemySpawn(Goblin.class, 0.5),
+                          new EnemySpawn(Orc.class, 2.5),
+                          new EnemySpawn(Goblin.class, 2.5),
+                          new EnemySpawn(Goblin.class, 0.5),
+                          new EnemySpawn(Orc.class, 2.5),
+                          new EnemySpawn(Goblin.class, 2.5),
+                          new EnemySpawn(Goblin.class, 0.5)
                   ),
-                  0
+                  15
           ),
 
           // Wave 6
           new Wave(
                   List.of(
                           new EnemySpawn(Goblin.class, 0.0), // repeat 16 times
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0),
-                          new EnemySpawn(Goblin.class, 0.0)
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25),
+                          new EnemySpawn(Goblin.class, 0.25)
                   ),
-                  0
+                  12
           )
   );
 
