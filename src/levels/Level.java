@@ -1,4 +1,4 @@
-package notCategorizedYet;
+package levels;
 
 import java.util.ArrayList;
 

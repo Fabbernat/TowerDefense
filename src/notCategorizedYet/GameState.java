@@ -1,5 +1,7 @@
 package notCategorizedYet;
 
+import levels.Level;
+
 import java.util.ArrayList;
 
 public class GameState {

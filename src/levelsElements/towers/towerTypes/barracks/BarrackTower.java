@@ -1,4 +1,4 @@
-package levelsElements.towers.towerTypes;
+package levelsElements.towers.towerTypes.barracks;
 
 import levelsElements.towers.Tower;
 import levelsElements.towers.Type;

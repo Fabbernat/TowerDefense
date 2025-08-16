@@ -1,32 +1,29 @@
 package levelsElements.towers;
 
+import levels.DamageTypes;
+
 public abstract class Tower {
   private static final double refundModifier = 0.7;
 
-  final Type type;
-  int cost;
-  int sellRefund;
-  int level;
+  private final Type type;
+  private int cost;
+  private int sellRefund;
+  private int level;
+  private DamageTypes damageType;
 
   public Tower(Type type) {
     this.type = type;
   }
 
-  public Type getType() {
-    return type;
-  }
+  public abstract Type getType();
 
-  public int getCost() {
-    return cost;
-  }
+  public abstract int getCost();
 
-  public int getSellRefund() {
-    return sellRefund;
-  }
+  public abstract int getSellRefund();
 
-  public int getLevel() {
-    return level;
-  }
+  public abstract int getLevel();
+
+  public abstract DamageTypes getDamageType();
 
   public static int setSellRefundBy(int cost) {
     return (int) (cost * refundModifier);

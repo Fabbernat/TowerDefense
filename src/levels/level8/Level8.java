@@ -1,6 +1,6 @@
 package levels.level8;
 
-import notCategorizedYet.Level;
+import levels.Level;
 
 public class Level8 extends Level {
   private final int NUMBER_OF_TOWER_SPOTS;

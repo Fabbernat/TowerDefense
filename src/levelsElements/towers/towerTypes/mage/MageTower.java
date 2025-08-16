@@ -1,4 +1,4 @@
-package levelsElements.towers.towerTypes;
+package levelsElements.towers.towerTypes.mage;
 
 import levelsElements.towers.Tower;
 import levelsElements.towers.Type;

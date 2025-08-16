@@ -4,5 +4,10 @@ public enum Type {
   ARCHER,
   BARRACKS,
   MAGE,
-  BOMBARDIER
+  BOMBARDIER,
+  INFERNO,
+  MORTAR,
+  CANNON,
+  TESLA,
+  TWO_KNIGHTS
 }

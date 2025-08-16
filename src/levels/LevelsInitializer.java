@@ -12,7 +12,6 @@ import levels.level9.Level9;
 import levels.level10.Level10;
 import levels.level11.Level11;
 import levels.level12.Level12;
-import notCategorizedYet.Level;
 
 public class LevelsInitializer {
   Level level1 = new Level1(11);
