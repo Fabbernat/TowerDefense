@@ -9,6 +9,31 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LevelState {
-  Map<EnemyBluePrint, EnemyPosition> enemies = new HashMap<>();
-  ArrayList<Tower> turrets = new ArrayList<>();
+  private Map<EnemyBluePrint, EnemyPosition> enemies = new HashMap<>();
+  private ArrayList<Tower> towers = new ArrayList<>();
+
+  public Map<EnemyBluePrint, EnemyPosition> getEnemies() {
+    return enemies;
+  }
+
+  public void setEnemies(Map<EnemyBluePrint, EnemyPosition> enemies) {
+    this.enemies = enemies;
+  }
+
+  public ArrayList<Tower> getTowers() {
+    return towers;
+  }
+
+  public void setTowers(ArrayList<Tower> towers) {
+    this.towers = towers;
+  }
+
+  public void addTower(Tower tower) {
+    this.towers.add(tower);
+  }
+
+  public static void main(String[] args) {
+    LevelState levelState = new LevelState();
+
+  }
 }
