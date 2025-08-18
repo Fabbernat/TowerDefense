@@ -6,9 +6,8 @@ import levelsElements.towers.Tower;
 public class Level1ArcherTower extends ArcherTower {
   private int cost = 70;
   private int sellRefund = Tower.setSellRefundBy(cost);
-  private int level = 1;
-  private DamageTypes damageType = DamageTypes.PHYSICAL;
-
+  private final int level = 1;
+  private final DamageTypes damageType = DamageTypes.PHYSICAL;
 
   private double averageAttackDamage = 5;
   private int minimumAttackDamage = 4;
@@ -19,10 +18,9 @@ public class Level1ArcherTower extends ArcherTower {
   public Level1ArcherTower() {
   }
 
-  public Level1ArcherTower(int cost, int sellRefund, int level, double averageAttackDamage, int minimumAttackDamage, int maximumAttackDamage, double attackSpeed, int range) {
+  public Level1ArcherTower(int cost, int sellRefund, double averageAttackDamage, int minimumAttackDamage, int maximumAttackDamage, double attackSpeed, int range) {
     this.cost = cost;
     this.sellRefund = sellRefund;
-    this.level = level;
     this.averageAttackDamage = averageAttackDamage;
     this.minimumAttackDamage = minimumAttackDamage;
     this.maximumAttackDamage = maximumAttackDamage;
@@ -50,9 +48,6 @@ public class Level1ArcherTower extends ArcherTower {
     return level;
   }
 
-  public void setLevel(int level) {
-    this.level = level;
-  }
 
   public double getAverageAttackDamage() {
     return averageAttackDamage;
@@ -99,7 +94,4 @@ public class Level1ArcherTower extends ArcherTower {
     return damageType;
   }
 
-  public void setDamageType(DamageTypes damageType) {
-    this.damageType = damageType;
-  }
 }

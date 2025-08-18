@@ -1,26 +1,33 @@
-package levelsElements.towers.towerTypes.archer;
+package levelsElements.towers.towerTypes.mortar;
 
 import levels.DamageTypes;
 import levelsElements.towers.Tower;
+import levelsElements.towers.towerTypes.archer.ArcherTower;
 
-public class Level2ArcherTower extends ArcherTower {
-  private int cost = 110;
+public class Level1MortarTower extends ArcherTower {
+  private int cost = 60;
   private int sellRefund = Tower.setSellRefundBy(cost);
-  private final int level = 2;
-  private final DamageTypes damageType = DamageTypes.PHYSICAL;
+  private int level = 1;
+  private DamageTypes damageType = DamageTypes.SPLASH;
 
-  private double averageAttackDamage = 9;
-  private int minimumAttackDamage = 7;
-  private int maximumAttackDamage = 11;
-  private double attackSpeed = 0.8;
-  private int range = 24;
 
-  public Level2ArcherTower() {
+  private double averageAttackDamage = 11.5;
+  private int minimumAttackDamage = 10;
+  private int maximumAttackDamage = 13;
+  private double attackSpeed = 5;
+  private int range = 50;
+
+  private int minimumRange = 25;
+
+  double splashRadiusInNodes = 3;
+
+  public Level1MortarTower() {
   }
 
-  public Level2ArcherTower(int cost, int sellRefund, double averageAttackDamage, int minimumAttackDamage, int maximumAttackDamage, double attackSpeed, int range) {
+  public Level1MortarTower(int cost, int sellRefund, int level, double averageAttackDamage, int minimumAttackDamage, int maximumAttackDamage, double attackSpeed, int range) {
     this.cost = cost;
     this.sellRefund = sellRefund;
+    this.level = level;
     this.averageAttackDamage = averageAttackDamage;
     this.minimumAttackDamage = minimumAttackDamage;
     this.maximumAttackDamage = maximumAttackDamage;
@@ -48,6 +55,9 @@ public class Level2ArcherTower extends ArcherTower {
     return level;
   }
 
+  public void setLevel(int level) {
+    this.level = level;
+  }
 
   public double getAverageAttackDamage() {
     return averageAttackDamage;
@@ -92,5 +102,9 @@ public class Level2ArcherTower extends ArcherTower {
   @Override
   public DamageTypes getDamageType() {
     return damageType;
+  }
+
+  public void setDamageType(DamageTypes damageType) {
+    this.damageType = damageType;
   }
 }
