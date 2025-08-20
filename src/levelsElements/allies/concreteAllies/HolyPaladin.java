@@ -1,15 +1,19 @@
 package levelsElements.allies.concreteAllies;
 
-public abstract class BarrackSoldier {
+public abstract class HolyPaladin {
   int maxHP;
   int hitPoints;
   double averageAttackDamage;
   int minimumAttackDamage;
   int maximumAttackDamage;
-  int speedInNodes = 6;
+  double attackSpeed = 2;
+  
+  int speedInNodes = 4;
   double physicalArmor;
 
-  public BarrackSoldier(int maxHP, int averageAttackDamage) {
+  public HolyPaladin(){}
+
+  public HolyPaladin(int maxHP, int averageAttackDamage) {
     this.maxHP = maxHP;
     this.hitPoints = maxHP;
     this.averageAttackDamage = averageAttackDamage;
@@ -17,7 +21,7 @@ public abstract class BarrackSoldier {
     this.maximumAttackDamage = (int) (averageAttackDamage * 1.2);
   }
 
-  public BarrackSoldier(int maxHP, int minimumAttackDamage, int maximumAttackDamage) {
+  public HolyPaladin(int maxHP, int minimumAttackDamage, int maximumAttackDamage) {
     this.maxHP = maxHP;
     this.hitPoints = maxHP;
     this.minimumAttackDamage = minimumAttackDamage;
@@ -37,32 +41,44 @@ public abstract class BarrackSoldier {
   }
 }
 
-class level1BarracksSoldier {
-  int maxHP = 50;
+class level1HolyPaladin extends HolyPaladin {
+  int maxHP = 100;
   int hitPoints;
   double averageAttackDamage = 2;
   int minimumAttackDamage = 1;
   int maximumAttackDamage = 3;
-  int speedInNodes = 6;
-  double physicalArmor = 0;
+  double attackSpeed = 2;
+
+  int speedInNodes = 4;
+  double physicalArmor = 40;
+
+
 }
 
-class level2BarracksSoldier {
-  int maxHP = 100;
+class level2HolyPaladin extends HolyPaladin {
+  int maxHP = 175;
   int hitPoints;
   double averageAttackDamage = 3.5;
   int minimumAttackDamage = 3;
   int maximumAttackDamage = 4;
-  int speedInNodes = 6;
-  double physicalArmor = 25;
+  double attackSpeed = 2;
+
+  int speedInNodes = 4;
+  double physicalArmor = 50;
+
+
 }
 
-class level3BarracksSoldier {
-  int maxHP = 150;
+class level3HolyPaladin extends HolyPaladin {
+  int maxHP = 250;
   int hitPoints;
   double averageAttackDamage = 8;
   int minimumAttackDamage = 6;
   int maximumAttackDamage = 10;
-  int speedInNodes = 6;
-  double physicalArmor = 50;
+  double attackSpeed = 2;
+
+  int speedInNodes = 4;
+  double physicalArmor = 60;
+
+
 }

@@ -1,12 +1,12 @@
-package levelsElements.towers.towerTypes.barracks;
+package levelsElements.towers.towerTypes.twoknights;
 
 import levels.DamageTypes;
 import levelsElements.towers.Tower;
 import levelsElements.towers.Type;
 
-public abstract class BarrackTower extends Tower {
+public abstract class TwoKnightsTower extends Tower {
 
-  final Type type = Type.BARRACKS;
+  final Type type = Type.HOLY_PALADINS;
   private int cost;
   private int sellRefund;
   private int level;
@@ -17,15 +17,15 @@ public abstract class BarrackTower extends Tower {
   private double attackSpeed;
   private int rallyPointRange;
 
-  protected final int thisSoldiersCount = 3;
-  protected final int thisRallyPointRange = 20;
+  protected final int thisSoldiersCount = 2;
+  protected final int thisRallyPointRange = 23;
   protected final DamageTypes thisDamageType = DamageTypes.PHYSICAL;
   
-  public BarrackTower(Type type) {
+  public TwoKnightsTower(Type type) {
     super(type);
   }
 
-  public BarrackTower(int cost, int sellRefund) {
+  public TwoKnightsTower(int cost, int sellRefund) {
     super(Type.BARRACKS);
     this.cost = cost;
     this.sellRefund = sellRefund;

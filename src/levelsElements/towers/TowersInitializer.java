@@ -3,6 +3,9 @@ package levelsElements.towers;
 import levelsElements.towers.towerTypes.archer.Level1ArcherTower;
 import levelsElements.towers.towerTypes.archer.Level2ArcherTower;
 import levelsElements.towers.towerTypes.archer.Level3ArcherTower;
+import levelsElements.towers.towerTypes.barracks.Level1BarrackTower;
+import levelsElements.towers.towerTypes.barracks.Level2BarrackTower;
+import levelsElements.towers.towerTypes.barracks.Level3BarrackTower;
 
 // to initialize and configure towers
 public class TowersInitializer {
@@ -45,18 +48,18 @@ public class TowersInitializer {
     public BarracksInitializer() {
       cost = 70;
 
-      Level1ArcherTower Level1BarrackTower = new Level1BarrackTower(cost, Tower.setSellRefundBy(cost), 5, 4, 6, 1, 20);
+      Level1BarrackTower Level1BarrackTower = new Level1BarrackTower(cost, Tower.setSellRefundBy(cost));
 
 
       cost = 110;
 
 
-      Level2ArcherTower Level3BarrackTower = new Level3BarrackTower(cost, Tower.setSellRefundBy(cost), 9, 7, 11, 0.8, 24);
+      Level2BarrackTower Level2BarrackTower = new Level2BarrackTower(cost, Tower.setSellRefundBy(cost));
 
 
       cost = 160;
 
-      Level3ArcherTower level3ArcherTower = new Level3ArcherTower(cost, Tower.setSellRefundBy(cost), 14.5, 11, 18, 0.7, 28);
+      Level3BarrackTower level3BarrackTower = new Level3BarrackTower(cost, Tower.setSellRefundBy(cost));
     }
   }
 

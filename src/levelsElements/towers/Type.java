@@ -9,5 +9,12 @@ public enum Type {
   MORTAR,
   CANNON,
   TESLA,
-  TWO_KNIGHTS
+  HOLY_PALADINS,
+  NECROMANCER,
+  SORCERER,
+  MUSKETEER,
+}
+
+enum TowerAbilities {
+
 }
