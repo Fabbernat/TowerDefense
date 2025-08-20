@@ -31,14 +31,14 @@ enum TowerAbilities {
           "rockets"
           "cluster bomb"
   ),
-  INFERNO,
-  MORTAR,
-  CANNON,
-  TESLA,
-  HOLY_PALADINS,
-  NECROMANCER,
-  SORCERER,
-  MUSKETEER,
+  INFERNO(),
+  MORTAR(),
+  CANNON(),
+  TESLA(),
+  HOLY_PALADINS(),
+  NECROMANCER(),
+  SORCERER(),
+  MUSKETEER(),
   CONTROL_MAGE(
           "Teleport": "every 14/12/10 seconds, teleports back up to 3/5/7 enemies back the way 16/19/22 nodes"
           "Polymorph": "every 25/20/15 seconds, turns the enemy into an innocent pet for 3/4/5 seconds"
