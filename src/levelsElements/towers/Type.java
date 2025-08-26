@@ -37,7 +37,10 @@ enum TowerAbilities {
   TESLA(),
   HOLY_PALADINS(),
   NECROMANCER(),
-  SORCERER(),
+  SORCERER(
+          "Passive:curse":"deal 30 damage over 3 seconds to the enemy, 25% of which is true damage"
+          "empowered curse":"increase damage to 45/60/75 and true damage ratio to 50/75/100%"
+  ),
   MUSKETEER(),
   CONTROL_MAGE(
           "Teleport": "every 14/12/10 seconds, teleports back up to 3/5/7 enemies back the way 16/19/22 nodes"

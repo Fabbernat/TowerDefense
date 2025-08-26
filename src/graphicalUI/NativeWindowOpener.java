@@ -1,5 +1,7 @@
 package graphicalUI;
 
+import jdk.jshell.spi.ExecutionControl;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +14,10 @@ public class NativeWindowOpener {
   public static void main(String[] args) {
     SwingUtilities.invokeLater(() -> {
       // Use the OS look & feel so it blends with Windows 11
-      try { UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); } catch (Exception ignored) {}
+      try {
+        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+      } catch (Exception ignored) {
+      }
 
       JFrame window = new JFrame("Kingdom Rush");
       window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -30,10 +35,9 @@ public class NativeWindowOpener {
       window.setVisible(true);
 
 
-
-
     });
   }
+
   static class SpritePanel extends JPanel {
     private BufferedImage sprite;
 
@@ -55,3 +59,4 @@ public class NativeWindowOpener {
     }
   }
 }
+

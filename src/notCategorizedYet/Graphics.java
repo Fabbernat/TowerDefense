@@ -1,3 +1,5 @@
+package notCategorizedYet;
+
 enum Graphics {
   LOADING_SCREEN("views/loadingScreen.png"),
   MAIN_MENU("views/mainMenu.png"),
