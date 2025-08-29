@@ -1,6 +1,6 @@
 package notCategorizedYet;
 
-enum Graphics {
+public enum Graphics {
   LOADING_SCREEN("views/loadingScreen.png"),
   MAIN_MENU("views/mainMenu.png"),
   WORLD_MAP("views/worldMap.png"),
@@ -17,6 +17,10 @@ enum Graphics {
 
   Graphics(String path) {
     this.path = path;
+  }
+
+  public static void show(Graphics graphics) {
+
   }
 
   public String getPath() {

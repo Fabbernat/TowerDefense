@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.util.Map;
 
 public class NativeWindowOpener {
+
+
   public static void main(String[] args) {
     SwingUtilities.invokeLater(() -> {
       // Use the OS look & feel so it blends with Windows 11
@@ -19,22 +21,27 @@ public class NativeWindowOpener {
       } catch (Exception ignored) {
       }
 
-      JFrame window = new JFrame("Kingdom Rush");
-      window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      window.setMinimumSize(new Dimension(360, 240));
-      window.setSize(1600, 1000);
-      window.setLocationByPlatform(true); // lets Windows decide a nice starting position
+      JFrame mainFrame = new JFrame("Kingdom Rush");
+      mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      mainFrame.setMinimumSize(new Dimension(360, 240));
+      mainFrame.setSize(Window.width, Window.height);
+      mainFrame.setLocationByPlatform(true); // lets Windows decide a nice starting position
 
-      window.setLayout(new BorderLayout());
-      window.add(new JLabel("KINGDOM RUSH", SwingConstants.CENTER), BorderLayout.CENTER);
+      mainFrame.setLayout(new BorderLayout());
+      mainFrame.add(new JLabel("KINGDOM RUSH", SwingConstants.CENTER), BorderLayout.CENTER);
 
       // Create a panel to draw our sprites
       SpritePanel spritePanel = new SpritePanel();
-      window.add(spritePanel, BorderLayout.CENTER);
+      mainFrame.add(spritePanel, BorderLayout.CENTER);
 
-      window.setVisible(true);
+      mainFrame.setVisible(true);
 
+      // Add game panel
+      GamePanel panel = new GamePanel();
+      mainFrame.add(panel);
+      mainFrame.setVisible(true);
 
+      panel.startGameLoop();
     });
   }
 

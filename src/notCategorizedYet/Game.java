@@ -2,7 +2,7 @@ package notCategorizedYet;
 
 import gameParameters.GameParameters;
 
-import Graphics;
+import notCategorizedYet.Graphics;
 
 
 public class Game {

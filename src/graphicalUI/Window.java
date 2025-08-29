@@ -3,14 +3,13 @@ package graphicalUI;
 import jdk.jshell.spi.ExecutionControl;
 
 public class Window {
-  int width, height;
+  public static int width = 1920;
+  public static int height = 1080;
   String title;
 
   private static Window window = null;
 
   private Window() {
-    this.width = 1920;
-    this.height = 1080;
     this.title = "Tower Defense";
   }
 
