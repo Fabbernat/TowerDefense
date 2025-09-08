@@ -9,33 +9,36 @@ import java.util.ArrayList;
 public class TestGoblins {
 
 
-    static boolean isAcceptableMargin(double difference){
-        return Math.abs(difference) < 5;
-    }
+  static boolean isAcceptableMargin(double difference) {
+    return Math.abs(difference) < 5;
+  }
 
-    static void log(Object object){
-        System.out.println(object);
-    }
+  static void log(Object object) {
+    System.out.println(object);
+  }
 
   public static void main(String[] args) {
     Starter.start();
     ArrayList<Enemy> enemies = new ArrayList<>();
+
     Goblin dobby = new Goblin();
     enemies.add(dobby);
-
     Goblin sipor = new Goblin();
-
-    double atckDamageBefore = sipor.getAverageAttackDamage();
-      log(sipor);
-
-      sipor.decreaseAverageAttackDamage(100);
-    assert isAcceptableMargin(sipor.getAverageAttackDamage() - atckDamageBefore);
+    double before = sipor.getAverageAttackDamage();
+    log(sipor);
+    sipor.decreaseAttackDamage(100);
+    double after = sipor.getAverageAttackDamage();
+    assert isAcceptableMargin(after - before);
+    log(sipor);
+    sipor.resetAttackDamage();
+    log(sipor);
+    before = sipor.getAverageAttackDamage();
+    sipor.increaseAttackDamage(200);
+    after = sipor.getAverageAttackDamage();
+    assert isAcceptableMargin(after - before);
     log(sipor);
 
-    sipor.increaseAverageAttackDamage(200);
-    System.out.println(sipor);
-
-    System.out.println(sipor.getHitPoints());
+    log(sipor.getHitPoints());
 
     sipor.decreaseHitPoints(33);
     System.out.println(sipor);
@@ -48,7 +51,7 @@ public class TestGoblins {
     enemies.add(sipor);
 
 
-    for (Enemy enemy : enemies){
+    for (Enemy enemy : enemies) {
       System.out.println(enemy);
     }
   }
