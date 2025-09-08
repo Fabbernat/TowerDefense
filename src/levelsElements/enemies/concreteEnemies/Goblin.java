@@ -26,14 +26,22 @@ public class Goblin extends Enemy implements canChangeAttackDamage {
     return goblin;
   }
 
-  /**
+    @Override
+    public Enemy decreaseAttackDamage(Enemy enemy, int parcentage) {
+        return null;
+    }
+
+    /**
    @param percentage must be an integer between 0 and 100. 10 means a 10 percent decrease to damage and 100 means 0 damage - no damage at all.
    */
-  @Override
-  public Enemy decreaseAttackDamage(Enemy goblin, int percentage) {
-    goblin = EnemyAttackDamageChanger.decreaseAttackDamage(goblin, percentage);
-    return goblin;
+  public void decreaseAverageAttackDamage(int percentage) {
+    this.averageAttackDamage -= averageAttackDamage * (double) percentage / 100;
   }
+
+    public void increaseAverageAttackDamage(int percentage) {
+        this.averageAttackDamage += averageAttackDamage * (double) percentage / 100;
+    }
+
 
   @Override
   public String toString() {
@@ -45,4 +53,5 @@ public class Goblin extends Enemy implements canChangeAttackDamage {
             ", maximumAttackDamage=" + maximumAttackDamage +
             '}';
   }
+
 }

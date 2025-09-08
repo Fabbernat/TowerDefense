@@ -9,6 +9,13 @@ import java.util.ArrayList;
 public class TestGoblins {
 
 
+    static boolean isAcceptableMargin(double difference){
+        return Math.abs(difference) < 5;
+    }
+
+    static void log(Object object){
+        System.out.println(object);
+    }
 
   public static void main(String[] args) {
     Starter.start();
@@ -17,10 +24,15 @@ public class TestGoblins {
     enemies.add(dobby);
 
     Goblin sipor = new Goblin();
-    sipor = (Goblin) sipor.decreaseAttackDamage(sipor,100);
-    System.out.println(sipor);
 
-    sipor = (Goblin) sipor.increaseAttackDamage(sipor,200);
+    double atckDamageBefore = sipor.getAverageAttackDamage();
+      log(sipor);
+
+      sipor.decreaseAverageAttackDamage(100);
+    assert isAcceptableMargin(sipor.getAverageAttackDamage() - atckDamageBefore);
+    log(sipor);
+
+    sipor.increaseAverageAttackDamage(200);
     System.out.println(sipor);
 
     System.out.println(sipor.getHitPoints());

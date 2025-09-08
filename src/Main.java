@@ -1,6 +1,7 @@
 import graphicalUI.Window;
 import jdk.jshell.spi.ExecutionControl;
 import notCategorizedYet.MainMenu;
+import notCategorizedYet.SlotsContainer;
 import notCategorizedYet.Starter;
 
 import java.util.Scanner;
@@ -13,7 +14,7 @@ public class Main {
     starter.start();
 
     MainMenu mainMenu = new MainMenu();
-    MainMenu.SlotsContainer slotsContainer = mainMenu.clickSlots();
+    SlotsContainer slotsContainer = new SlotsContainer();
     Scanner scanner = new Scanner(System.in);
     String line = scanner.nextLine();
     switch (line) {

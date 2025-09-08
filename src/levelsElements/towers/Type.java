@@ -18,7 +18,7 @@ public enum Type {
 }
 
 enum TowerAbilities {
-  ARCHER(List.of(
+  /*ARCHER(List.of(
           new TowerAbility(
                   "Poison Arrows", "The archers inflict their arrows with poison that deals 15 poison damage per second for 3 seconds"),
           new TowerAbility("Fiery Arrows", "Every 20 sec, the archers set an arrow's head on fire that deals 10 extra damage to the target and sets the area on fire for 5 seconds, dealing 10 damage per second")
@@ -59,5 +59,5 @@ enum TowerAbilities {
           "Teleport":"every 14/12/10 seconds, teleports back up to 3/5/7 enemies back the way 16/19/22 nodes"
                   "Polymorph":"every 25/20/15 seconds, turns the enemy into an innocent pet for 3/4/5 seconds"
                   "time warp":"every 22/17/12 seconds turns 3/4/5 enemies into glowing balls for 3 seconds and deals 90/135/180 magic damage to each"
-  )
+  )*/
 }
