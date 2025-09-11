@@ -15,6 +15,7 @@ public class NativeWindowOpener {
 
   public static void main(String[] args) {
     SwingUtilities.invokeLater(() -> {
+
       // Use the OS look & feel so it blends with Windows 11
       try {
         UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -30,38 +31,74 @@ public class NativeWindowOpener {
       mainFrame.setLayout(new BorderLayout());
       mainFrame.add(new JLabel("KINGDOM RUSH", SwingConstants.CENTER), BorderLayout.CENTER);
 
-      // Create a panel to draw our sprites
       SpritePanel spritePanel = new SpritePanel();
+      GamePanel gamePanel = new GamePanel();
+
+      JPanel container = new JPanel(new GridLayout(1, 2)); // side-by-side
+      container.add(spritePanel);
+      container.add(gamePanel);
+
       mainFrame.add(spritePanel, BorderLayout.CENTER);
 
       mainFrame.setVisible(true);
 
-      // Add game panel
-      GamePanel panel = new GamePanel();
-      mainFrame.add(panel);
-      mainFrame.setVisible(true);
-
-      panel.startGameLoop();
+      gamePanel.startGameLoop();
     });
   }
 
   static class SpritePanel extends JPanel {
-    private BufferedImage sprite;
+    private class Sprite {
+      BufferedImage image;
+      int x, y;
+      int dx, dy; // movement speed
+
+      Sprite(String path, int startX, int startY, int dx, int dy) {
+        try {
+          image = ImageIO.read(new File(path));
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+        this.x = startX;
+        this.y = startY;
+        this.dx = dx;
+        this.dy = dy;
+      }
+
+      void update() {
+        x += dx;
+        y += dy;
+      }
+
+      void draw(Graphics g) {
+        if (image != null) {
+          g.drawImage(image, x, y, 64, 64, null);
+        }
+      }
+    }
+
+    private final java.util.List<Sprite> sprites = new java.util.ArrayList<>();
 
     public SpritePanel() {
-      try {
-        sprite = ImageIO.read(new File("assets/sprites/goblin.png"));
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
+      // load goblin, wulf, shaman
+      sprites.add(new Sprite("assets/sprites/goblin.png", 50, 100, 2, 0));
+      sprites.add(new Sprite("assets/sprites/enemies/wulf.png", 50, 150, 3, 0));
+      sprites.add(new Sprite("assets/sprites/enemies/shaman.png", 50, 200, 1, 0));
+
+      // simple timer loop for movement
+      Timer timer = new Timer(16, e -> {
+        for (Sprite s : sprites) {
+          s.update();
+        }
+        repaint();
+      });
+      timer.start();
     }
 
     @Override
     protected void paintComponent(Graphics g) {
       super.paintComponent(g);
-      if (sprite != null) {
-        // Draw at position (100,100) — scale to 64x64
-        g.drawImage(sprite, 100, 100, 64, 64, null);
+      for (Sprite s : sprites) {
+        s.draw(g);
       }
     }
   }
