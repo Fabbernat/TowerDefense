@@ -1,4 +1,4 @@
-package graphicalUI;
+package NativeWindowApp.graphicalUI;
 
 import java.awt.image.BufferedImage;
 import java.util.HashMap;

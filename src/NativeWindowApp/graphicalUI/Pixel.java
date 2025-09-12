@@ -1,4 +1,4 @@
-package graphicalUI;
+package NativeWindowApp.graphicalUI;
 
 public class Pixel {
   public String color;

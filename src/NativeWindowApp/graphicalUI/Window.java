@@ -1,4 +1,4 @@
-package graphicalUI;
+package NativeWindowApp.graphicalUI;
 
 import jdk.jshell.spi.ExecutionControl;
 

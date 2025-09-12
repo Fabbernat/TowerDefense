@@ -1,6 +1,4 @@
-package graphicalUI;
-
-import jdk.jshell.spi.ExecutionControl;
+package NativeWindowApp.graphicalUI;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -8,12 +6,11 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
 public class NativeWindowOpener {
 
 
-  public static void main(String[] args) {
+  public static void run(String[] args) {
     SwingUtilities.invokeLater(() -> {
 
       // Use the OS look & feel so it blends with Windows 11

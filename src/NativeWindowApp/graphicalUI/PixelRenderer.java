@@ -1,4 +1,4 @@
-package graphicalUI;
+package NativeWindowApp.graphicalUI;
 
 public class PixelRenderer {
   private int rowIndex;

@@ -1,4 +1,4 @@
-import graphicalUI.Window;
+import NativeWindowApp.graphicalUI.Window;
 import jdk.jshell.spi.ExecutionControl;
 import notCategorizedYet.MainMenu;
 import notCategorizedYet.SlotsContainer;
@@ -10,8 +10,7 @@ public class Main {
   public static void main(String[] args) throws ExecutionControl.NotImplementedException {
     Window window = Window.get();
     window.run();
-    Starter starter = new Starter();
-    starter.start();
+    Starter.start();
 
     MainMenu mainMenu = new MainMenu();
     SlotsContainer slotsContainer = new SlotsContainer();

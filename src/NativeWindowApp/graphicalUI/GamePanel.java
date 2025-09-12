@@ -1,4 +1,4 @@
-package graphicalUI;
+package NativeWindowApp.graphicalUI;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
