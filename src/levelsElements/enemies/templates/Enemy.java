@@ -2,11 +2,18 @@ package levelsElements.enemies.templates;
 
 public abstract class Enemy extends EnemyBluePrint {
 
-  int maxHP;
+  // base value (useful for reset)
+  final int maxHP;
+
+  // current value
   int hitPoints;
-  int minimumAttackDamage;
-  double averageAttackDamage;
-  int maximumAttackDamage;
+
+  // base values (useful for reset)
+  private final AttackDamage baseAttackDamage;
+
+  // current values
+  private AttackDamage currentAttackDamage = baseAttackDamage;
+
 
   int speedInNodes = 3;
   double physicalArmor = 0;
@@ -22,15 +29,43 @@ public abstract class Enemy extends EnemyBluePrint {
     super(maxHP, minimumAttackDamage, maximumAttackDamage);
   }
 
-  public void setAverageAttackDamage(double damage) {
-    this.averageAttackDamage = damage;
+  /**
+   * @param percentage must be an integer, so 10 means a 10-percent boost to damage, and 200 means 200% more damage
+   */
+
+  public void increaseAttackDamage(int percentage) {
+    AttackDamage before = currentAttackDamage;
+    AttackDamage after = EnemyAttackDamageModifier.scaleUpAttackDamage(before, percentage);
+    currentAttackDamage = after;
   }
-  public void setMinimumAttackDamage(int damage) {
-    this.minimumAttackDamage = damage;
+
+  /**
+   * @param percentage must be an integer between 0 and 100. 10 means a 10-percent decrease to damage, and 100 means 0 damage - no damage at all.
+   */
+  public void decreaseAttackDamage(int percentage) {
+    AttackDamage before = currentAttackDamage;
+    AttackDamage after = EnemyAttackDamageModifier.scaleDownAttackDamage(before, percentage);
+    currentAttackDamage = after;
   }
-  public void setMaximumAttackDamage(int damage) {
-    this.maximumAttackDamage = damage;
+
+
+  public void increaseAttackDamageByFlat(int flatAmount){
+    AttackDamage before = currentAttackDamage;
+    AttackDamage after = EnemyAttackDamageModifier.increaseAttackDamageByFlat(before, flatAmount);
+    currentAttackDamage = after;
   }
+
+  public void decreaseAttackDamageByFlat(int flatAmount){
+    AttackDamage before = currentAttackDamage;
+    AttackDamage after = EnemyAttackDamageModifier.decreaseAttackDamageByFlat(before, flatAmount);
+    currentAttackDamage = after;
+  }
+
+
+  public void resetAttackDamage(){
+    currentAttackDamage = baseAttackDamage;
+  }
+
 
   public void increaseHitPoints(int amount) {
     this.hitPoints += amount;
@@ -48,26 +83,15 @@ public abstract class Enemy extends EnemyBluePrint {
     }
   }
 
-  public double getAverageAttackDamage() {
-    return averageAttackDamage;
-  }
-
-  public int getMinimumAttackDamage() {
-    return minimumAttackDamage;
-  }
-
-  public int getMaximumAttackDamage() {
-    return maximumAttackDamage;
-  }
 
   @Override
   public String toString() {
     return "Enemy{" +
             "maxHP=" + maxHP +
             ", hitPoints=" + hitPoints +
-            ", minimumAttackDamage=" + minimumAttackDamage +
-            ", averageAttackDamage=" + averageAttackDamage +
-            ", maximumAttackDamage=" + maximumAttackDamage +
+            ", minimumAttackDamage=" + currentAttackDamage.min() +
+            ", averageAttackDamage=" + currentAttackDamage.average() +
+            ", maximumAttackDamage=" + currentAttackDamage.max() +
             '}';
   }
 
