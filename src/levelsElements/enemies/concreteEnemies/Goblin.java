@@ -5,8 +5,6 @@ import levelsElements.enemies.templates.Enemy;
 import levelsElements.enemies.templates.EnemyAttackDamageModifier;
 import levelsElements.enemies.traits.canChangeAttackDamage;
 
-import java.util.AbstractCollection;
-
 public class Goblin extends Enemy implements canChangeAttackDamage {
 
 
@@ -27,6 +25,8 @@ public class Goblin extends Enemy implements canChangeAttackDamage {
   double magicArmor = 0;
 
   public Goblin() {
+    super();
+
   }
 
   /**

@@ -12,22 +12,38 @@ public abstract class Enemy extends EnemyBluePrint {
   private final AttackDamage baseAttackDamage;
 
   // current values
-  private AttackDamage currentAttackDamage = baseAttackDamage;
+  private AttackDamage currentAttackDamage;
 
 
   int speedInNodes = 3;
   double physicalArmor = 0;
   double magicArmor = 0;
 
-  public Enemy(){}
+  public Enemy(int maxHP, AttackDamage baseAttackDamage){
+    this.maxHP = maxHP;
+    this.baseAttackDamage = baseAttackDamage;
+    currentAttackDamage = baseAttackDamage;
+  }
 
-  public Enemy(final int maxHP, int averageAttackDamage) {
+  public Enemy(final int maxHP, int averageAttackDamage, int maxHP1, AttackDamage baseAttackDamage) {
     super(maxHP, averageAttackDamage);
+    this.maxHP = maxHP1;
+    this.baseAttackDamage = baseAttackDamage;
+    currentAttackDamage = baseAttackDamage;
   }
 
-  public Enemy(final int maxHP, int minimumAttackDamage, int maximumAttackDamage) {
+  public Enemy(final int maxHP, int minimumAttackDamage, int maximumAttackDamage, int maxHP1, AttackDamage baseAttackDamage) {
     super(maxHP, minimumAttackDamage, maximumAttackDamage);
+    this.maxHP = maxHP1;
+    this.baseAttackDamage = baseAttackDamage;
+    currentAttackDamage = baseAttackDamage;
   }
+
+  public Enemy() {
+    maxHP = 0;
+    baseAttackDamage = new AttackDamage(0, 0, 0);
+  }
+
 
   /**
    * @param percentage must be an integer, so 10 means a 10-percent boost to damage, and 200 means 200% more damage
