@@ -1,9 +1,12 @@
 package levelsElements.enemies.concreteEnemies;
 
+import levelsElements.enemies.traits.Ability;
 import levelsElements.enemies.templates.AttackDamage;
 import levelsElements.enemies.templates.Enemy;
 import levelsElements.enemies.templates.EnemyAttackDamageModifier;
 import levelsElements.enemies.traits.canChangeAttackDamage;
+
+import java.util.*;
 
 public class Goblin extends Enemy implements canChangeAttackDamage {
 
@@ -16,6 +19,7 @@ public class Goblin extends Enemy implements canChangeAttackDamage {
 
   // base values (useful for reset)
   private final AttackDamage baseAttackDamage = new AttackDamage(4.0, 2, 6);
+  private ArrayList<Ability> abilities = new ArrayList<Ability>();
 
   // current values
   private AttackDamage currentAttackDamage = baseAttackDamage;

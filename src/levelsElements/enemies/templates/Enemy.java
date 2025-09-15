@@ -1,5 +1,9 @@
 package levelsElements.enemies.templates;
 
+import levelsElements.enemies.traits.Ability;
+
+import java.util.ArrayList;
+
 public abstract class Enemy extends EnemyBluePrint {
 
   // base value (useful for reset)
@@ -13,7 +17,7 @@ public abstract class Enemy extends EnemyBluePrint {
 
   // current values
   private AttackDamage currentAttackDamage;
-
+  private ArrayList<Ability> abilities = new ArrayList<Ability>();
 
   int speedInNodes = 3;
   double physicalArmor = 0;
