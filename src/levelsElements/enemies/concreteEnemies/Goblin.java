@@ -22,7 +22,7 @@ public class Goblin extends Enemy implements canChangeAttackDamage {
   private ArrayList<Ability> abilities = new ArrayList<Ability>();
 
   // current values
-  private AttackDamage currentAttackDamage = baseAttackDamage;
+  public AttackDamage currentAttackDamage = baseAttackDamage;
 
   int speedInNodes = 5;
   double physicalArmor = 0;

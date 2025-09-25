@@ -77,10 +77,15 @@ public class NativeWindowOpener {
 
     public SpritePanel() {
       // load goblin, wulf, shaman
-      sprites.add(new Sprite("assets/sprites/goblin.png", 50, 100, 2, 0));
-      sprites.add(new Sprite("assets/sprites/enemies/wulf.png", 50, 150, 3, 0));
-      sprites.add(new Sprite("assets/sprites/enemies/shaman.png", 50, 200, 1, 0));
-
+      sprites.add(new Sprite("assets/sprites/goblin.png", 40, 100, 2, 0));
+      sprites.add(new Sprite("assets/sprites/enemies/wulf.png", 60, 150, 3, 0));
+      sprites.add(new Sprite("assets/sprites/enemies/shaman.png", 80, 200, 1, 0));
+      sprites.add(new Sprite("assets/sprites/enemies/mageLevel1.png", 110, 300, 1, 0));
+      sprites.add(new Sprite("assets/sprites/enemies/mageLevel2.png", 123, 400, 4, 0));
+      sprites.add(new Sprite("assets/sprites/enemies/mageLevel3.png", 146, 500, 9, 0));
+      sprites.add(new Sprite("assets/sprites/enemies/kidGoblin.png", 166, 600, 1, 0));
+      sprites.add(new Sprite("assets/sprites/towers/mageTower.png", 200, 700, 1, 0));
+      sprites.add(new Sprite("assets/sprites/enemies/bow.png", 256, 800, 1, 0));
       // simple timer loop for movement
       Timer timer = new Timer(16, e -> {
         for (Sprite s : sprites) {

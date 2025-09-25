@@ -24,17 +24,17 @@ public class TestGoblins {
     Goblin dobby = new Goblin();
     enemies.add(dobby);
     Goblin sipor = new Goblin();
-    double before = sipor.getAverageAttackDamage();
+    double before = sipor.currentAttackDamage.average();
     log(sipor);
     sipor.decreaseAttackDamage(100);
-    double after = sipor.getAverageAttackDamage();
+    double after = sipor.currentAttackDamage.average();
     assert isAcceptableMargin(after - before);
     log(sipor);
     sipor.resetAttackDamage();
     log(sipor);
-    before = sipor.getAverageAttackDamage();
+    before = sipor.currentAttackDamage.average();
     sipor.increaseAttackDamage(200);
-    after = sipor.getAverageAttackDamage();
+    after = sipor.currentAttackDamage.average();
     assert isAcceptableMargin(after - before);
     log(sipor);
 
