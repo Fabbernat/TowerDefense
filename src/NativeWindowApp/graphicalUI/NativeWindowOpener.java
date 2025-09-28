@@ -47,9 +47,9 @@ public class NativeWindowOpener {
     private class Sprite {
       BufferedImage image;
       int x, y;
-      int dx, dy; // movement speed
+      int deltaX, deltaY; // movement speed
 
-      Sprite(String path, int startX, int startY, int dx, int dy) {
+      Sprite(String path, int startX, int startY, int deltaX, int deltaY) {
         try {
           image = ImageIO.read(new File(path));
         } catch (IOException e) {
@@ -57,13 +57,13 @@ public class NativeWindowOpener {
         }
         this.x = startX;
         this.y = startY;
-        this.dx = dx;
-        this.dy = dy;
+        this.deltaX = deltaX;
+        this.deltaY = deltaY;
       }
 
       void update() {
-        x += dx;
-        y += dy;
+        x += deltaX;
+        y += deltaY;
       }
 
       void draw(Graphics g) {
@@ -76,7 +76,39 @@ public class NativeWindowOpener {
     private final java.util.List<Sprite> sprites = new java.util.ArrayList<>();
 
     public SpritePanel() {
-      // load goblin, wulf, shaman
+      paintBackground();
+      loadMobiles();
+
+      // simple timer loop for movement
+      Timer timer = new Timer(16, e -> {
+        for (Sprite s : sprites) {
+          s.update();
+        }
+        repaint();
+      });
+      timer.start();
+    }
+
+
+    private void paintBackground() {
+      int backGroundSpriteHeightAndWidth = 127;
+      int gapToNextBackGroundSpriteRow = backGroundSpriteHeightAndWidth * 2;
+
+      for (int y = 0; y < Window.height; y += backGroundSpriteHeightAndWidth) {
+        if (y % gapToNextBackGroundSpriteRow == 0) {
+          for (int x = 0; x < Window.width; x += backGroundSpriteHeightAndWidth) {
+            sprites.add(new Sprite("assets/sprites/territory/upperBorderOfThePath.png", x, y, 0, 0));
+          }
+        } else {
+          for (int x = 0; x < Window.width; x += backGroundSpriteHeightAndWidth) {
+            sprites.add(new Sprite("assets/sprites/territory/lowerBorderOfThePath.png", x, y, 0, 0));
+          }
+        }
+      }
+    }
+
+    private void loadMobiles() {
+      // load goblin, wulf, shaman, etc.
       sprites.add(new Sprite("assets/sprites/goblin.png", 40, 100, 2, 0));
       sprites.add(new Sprite("assets/sprites/enemies/wulf.png", 60, 150, 3, 0));
       sprites.add(new Sprite("assets/sprites/enemies/shaman.png", 80, 200, 1, 0));
@@ -86,14 +118,6 @@ public class NativeWindowOpener {
       sprites.add(new Sprite("assets/sprites/enemies/kidGoblin.png", 166, 600, 1, 0));
       sprites.add(new Sprite("assets/sprites/towers/mageTower.png", 200, 700, 1, 0));
       sprites.add(new Sprite("assets/sprites/enemies/bow.png", 256, 800, 1, 0));
-      // simple timer loop for movement
-      Timer timer = new Timer(16, e -> {
-        for (Sprite s : sprites) {
-          s.update();
-        }
-        repaint();
-      });
-      timer.start();
     }
 
     @Override
