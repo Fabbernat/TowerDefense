@@ -21,17 +21,17 @@ public class Window {
     return Window.window;
   }
 
-  public void run() throws ExecutionControl.NotImplementedException {
+  public void run() {
     init();
     loop();
   }
 
-  private void init() throws ExecutionControl.NotImplementedException {
-    throw new ExecutionControl.NotImplementedException("Method not implemented");
+  private void init() {
+
   }
   
 
-  private void loop() throws ExecutionControl.NotImplementedException {
-    throw new ExecutionControl.NotImplementedException("Method not implemented");
+  private void loop() {
+
   }
 }
