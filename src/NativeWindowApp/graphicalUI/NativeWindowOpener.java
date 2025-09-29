@@ -91,7 +91,7 @@ public class NativeWindowOpener {
 
 
     private void paintBackground() {
-      int backGroundSpriteHeightAndWidth = 127;
+      int backGroundSpriteHeightAndWidth = 82;
       int gapToNextBackGroundSpriteRow = backGroundSpriteHeightAndWidth * 2;
 
       for (int y = 0; y < Window.height; y += backGroundSpriteHeightAndWidth) {
@@ -109,14 +109,14 @@ public class NativeWindowOpener {
 
     private void loadMobiles() {
       // load goblin, wulf, shaman, etc.
-      sprites.add(new Sprite("assets/sprites/goblin.png", 40, 100, 2, 0));
-      sprites.add(new Sprite("assets/sprites/enemies/wulf.png", 60, 150, 3, 0));
-      sprites.add(new Sprite("assets/sprites/enemies/shaman.png", 80, 200, 1, 0));
-      sprites.add(new Sprite("assets/sprites/enemies/mageLevel1.png", 110, 300, 1, 0));
+      sprites.add(new Sprite("assets/sprites/goblin.png", 40, 100, 2, 1));
+      sprites.add(new Sprite("assets/sprites/enemies/wulf.png", 60, 150, 3, 7));
+      sprites.add(new Sprite("assets/sprites/enemies/shaman.png", 80, 200, 1, -10));
+      sprites.add(new Sprite("assets/sprites/enemies/mageLevel1.png", 110, 300, 1, 13));
       sprites.add(new Sprite("assets/sprites/enemies/mageLevel2.png", 123, 400, 4, 0));
       sprites.add(new Sprite("assets/sprites/enemies/mageLevel3.png", 146, 500, 9, 0));
-      sprites.add(new Sprite("assets/sprites/enemies/kidGoblin.png", 166, 600, 1, 0));
-      sprites.add(new Sprite("assets/sprites/towers/mageTower.png", 200, 700, 1, 0));
+      sprites.add(new Sprite("assets/sprites/enemies/kidGoblin.png", 166, 600, 1, -1));
+      sprites.add(new Sprite("assets/sprites/towers/mageTower.png", 800, 700, -5, 10));
       sprites.add(new Sprite("assets/sprites/enemies/bow.png", 256, 800, 1, 0));
     }
 
