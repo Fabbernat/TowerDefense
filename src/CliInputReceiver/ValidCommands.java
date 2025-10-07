@@ -21,10 +21,14 @@ public class ValidCommands {
           "holyPaladins", "necromancer", "sorcerer", "musketeer"
   );
 
-  private static final Set<String> battleActions = Set.of(
+  private static final Set<String> battleActions0Param = Set.of(
           "viewWaveLaneEnemiesToCome", "callWave",
           "clickOnFirstSpell", "putFirstSpell",
           "clickOnSecondSpell", "putSecondSpell"
+  );
+
+  private static final Set<String> battleActions1Param = Set.of(
+    "kill"
   );
 
   // --- Wrappers ---
@@ -37,9 +41,11 @@ public class ValidCommands {
   public static final Set<String> TOWERS =
           toUnmodifiableLowercaseSet(towers);
 
-  public static final Set<String> BATTLE_ACTIONS =
-          toUnmodifiableLowercaseSet(battleActions);
+  public static final Set<String> BATTLE_ACTIONS0 =
+          toUnmodifiableLowercaseSet(battleActions0Param);
 
+  public static final Set<String> BATTLE_ACTIONS1 =
+          toUnmodifiableLowercaseSet(battleActions1Param);
 
   // --- Global collector ---
   public static final Set<String> ALL_COMMANDS = collectAllCommandSets();

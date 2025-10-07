@@ -61,14 +61,20 @@ public class ValidCommandsReceiverTests {
     }
 
 
-    // Check battle action commands like "callWave"
-    for (String cmd : ValidCommands.BATTLE_ACTIONS) {
+    // Check 0 param battle action commands like "callWave"
+    for (String cmd : ValidCommands.BATTLE_ACTIONS0) {
       if (input.startsWith(cmd)) {
         if ("callwave".equals(cmd))
           ++currentWave;
         report("Executed battle action: `" + cmd +"`");
         return;
       }
+    }
+
+    // Check 1 param battle action commands
+    for (String cmd : ValidCommands.battle) {
+    if (input.startsWith("kill"){
+      String remainder = input.substring(cmd.length()).trim();
     }
 
     // Check tower + position, e.g., Archer 15
@@ -79,6 +85,7 @@ public class ValidCommandsReceiverTests {
           int pos = Integer.parseInt(remainder);
           if (pos >= 0 && pos <= 30) {
             report("Placed tower " + tower + " at position " + pos);
+            gold -= 100; // TODO gold -= tower.price();
           } else {
             System.out.println("Invalid position (must be 0–30).");
           }
@@ -106,7 +113,7 @@ public class ValidCommandsReceiverTests {
 
   // fields for report
   private static int hearts = 20;
-  private static int gold = 0;
+  private static int gold = 700;
   private static String tabulators = "\t\t\t\t\t\t\t\t";
 
   /** Overloadable method with helper fields declared above
@@ -114,7 +121,7 @@ public class ValidCommandsReceiverTests {
    *
    */
   private static void report(String message){
-    gold += 100;
+
     StringBuilder builder = new StringBuilder();
     builder.append(hearts).append(" hearts | ").append(gold).append(" gold | ").append(currentWave).append("th wave ").append(tabulators).append("\n")
                     .append(message);
@@ -122,7 +129,7 @@ public class ValidCommandsReceiverTests {
   }
 
   private void report(String message, int heartsLoss){
-    gold += 100;
+
     StringBuilder builder = new StringBuilder();
     hearts = Math.max(0, hearts - heartsLoss);
     builder.append(hearts).append(" hearts | ").append(gold).append(" gold | ").append(currentWave).append("th wave ").append(tabulators).append("\n")
