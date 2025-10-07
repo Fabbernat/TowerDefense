@@ -2,7 +2,9 @@ package CliInputReceiver.Tests;
 
 import CliInputReceiver.ValidCommands;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Set;
 
 
 public class ValidCommandsReceiverTests {
@@ -14,23 +16,24 @@ public class ValidCommandsReceiverTests {
     while (true) {
       System.out.print("> ");
       String input = scanner.nextLine().trim();
+      input = input.toLowerCase();
 
       String farewellMessage = "Goodbye Defender!";
-      if (currentWave > 15){
+      if (currentWave > 15) {
         System.out.println("Game finished! " + farewellMessage);
         break;
       }
-      if (input.equalsIgnoreCase("exit") || input.equalsIgnoreCase("quit")) {
+      if ("exit".equals(input) || "quit".equals(input)) {
         System.out.println(farewellMessage);
         break;
       }
 
-      input = input.toLowerCase();
       handleCommand(input);
     }
   }
 
   static int currentWave = 1;
+
   private static void handleCommand(String input) {
 
     if (input.isEmpty())
@@ -66,26 +69,41 @@ public class ValidCommandsReceiverTests {
       if (input.startsWith(cmd)) {
         if ("callwave".equals(cmd))
           ++currentWave;
-        report("Executed battle action: `" + cmd +"`");
+        report("Executed battle action: `" + cmd + "`");
         return;
       }
     }
 
     // Check 1 param battle action commands
-    for (String cmd : ValidCommands.battle) {
-    if (input.startsWith("kill"){
-      String remainder = input.substring(cmd.length()).trim();
+    for (String cmd : ValidCommands.BATTLE_ACTIONS1) {
+      if (input.startsWith(cmd.toLowerCase())) {
+        String enemy = getRemainder(input, cmd);
+        Set<String> enemies = Set.of("goblin", "orc", "wulf");
+        String exampleEnemy = enemies.iterator().next();
+
+        if (enemy.isEmpty()) {
+          System.out.println("Invalid format. Example: " + cmd + ' ' + exampleEnemy);
+        }
+        if (enemies.contains(enemy)) {
+          int bountyGold = 50;
+          report("Killed enemy " + enemy + " giving you " + bountyGold + " gold.");
+          gold += 50;
+        } else {
+          System.out.println("Invalid enemy. Must be one of these: \n" + enemies);
+        }
+        return;
+      }
     }
 
     // Check tower + position, e.g., Archer 15
     for (String tower : ValidCommands.TOWERS) {
       if (input.startsWith(tower.toLowerCase())) {
-        String remainder = input.substring(tower.length()).trim();
+        String remainder = getRemainder(input, tower);
         if (isInteger(remainder)) {
           int pos = Integer.parseInt(remainder);
           if (pos >= 0 && pos <= 30) {
-            report("Placed tower " + tower + " at position " + pos);
             gold -= 100; // TODO gold -= tower.price();
+            report("Placed tower " + tower + " at position " + pos);
           } else {
             System.out.println("Invalid position (must be 0–30).");
           }
@@ -98,6 +116,10 @@ public class ValidCommandsReceiverTests {
 
     // If nothing matched
     System.out.println("Unknown command: " + input);
+  }
+
+  private static String getRemainder(String input, String cmd) {
+    return input.substring(cmd.length()).trim();
   }
 
   private static boolean isInteger(String s) {
@@ -116,19 +138,20 @@ public class ValidCommandsReceiverTests {
   private static int gold = 700;
   private static String tabulators = "\t\t\t\t\t\t\t\t";
 
-  /** Overloadable method with helper fields declared above
-   *
-   *
-   */
-  private static void report(String message){
+
+  /**
+   * Reports the message passed in parameter along with hearts, gold, wave and other metadata.
+   * * Overloadable method with helper fields declared above
+   **/
+  private static void report(String message) {
 
     StringBuilder builder = new StringBuilder();
-    builder.append(hearts).append(" hearts | ").append(gold).append(" gold | ").append(currentWave).append("th wave ").append(tabulators).append("\n")
-                    .append(message);
+    builder.append("|--- ").append(hearts).append(" hearts | ").append(gold).append(" gold | ").append(currentWave).append("th wave").append( " ---|").append(tabulators).append("\n")
+            .append(message);
     System.out.println(builder);
   }
 
-  private void report(String message, int heartsLoss){
+  private void report(String message, int heartsLoss) {
 
     StringBuilder builder = new StringBuilder();
     hearts = Math.max(0, hearts - heartsLoss);
