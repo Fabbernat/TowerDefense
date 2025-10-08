@@ -2,7 +2,6 @@ package CliInputReceiver.Tests;
 
 import CliInputReceiver.ValidCommands;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -38,6 +37,10 @@ public class ValidCommandsReceiverTests {
 
     if (input.isEmpty())
       return;
+
+    if (input.equals("help")) {
+        System.out.println("Available commands:" + ValidCommands.ALL_COMMANDS);
+    }
 
     // First, check simple base commands
     if (ValidCommands.BASE_COMMANDS.contains(input)) {
@@ -145,10 +148,9 @@ public class ValidCommandsReceiverTests {
    **/
   private static void report(String message) {
 
-    StringBuilder builder = new StringBuilder();
-    builder.append("|--- ").append(hearts).append(" hearts | ").append(gold).append(" gold | ").append(currentWave).append("th wave").append( " ---|").append(tabulators).append("\n")
-            .append(message);
-    System.out.println(builder);
+      String longMessage = "|--- " + hearts + " hearts | " + gold + " gold | " + currentWave + "th wave" + " ---|" + tabulators + "\n" +
+              message;
+    System.out.println(longMessage);
   }
 
   private void report(String message, int heartsLoss) {
