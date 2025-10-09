@@ -10,7 +10,7 @@ public class ValidCommandsReceiverTests {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    System.out.println("KR CLI started. Type 'help' to get the list of available commands. Examples: \n'add' and the tower name to add a tower; \n'kill' and the enemy name to destroy an enemy; \n'exit' to quit.");
+    System.out.println("Kingdom Rush CLI started. Type 'help' to get the list of available commands. Examples: \n'add' and the tower name to add a tower; \n'kill' and the enemy name to destroy an enemy; \n'exit' to quit.");
 
     while (true) {
       System.out.print("> ");
@@ -40,6 +40,7 @@ public class ValidCommandsReceiverTests {
 
     if (input.equals("help")) {
         System.out.println("Available commands:" + ValidCommands.ALL_COMMANDS);
+        return;
     }
 
     // First, check simple base commands
@@ -81,7 +82,7 @@ public class ValidCommandsReceiverTests {
     for (String cmd : ValidCommands.BATTLE_ACTIONS1) {
       if (input.startsWith(cmd.toLowerCase())) {
         String enemy = getRemainder(input, cmd);
-        Set<String> enemies = Set.of("goblin", "orc", "wulf");
+        Set<String> enemies = ValidCommands.ENEMIES;
         String exampleEnemy = enemies.iterator().next();
 
         if (enemy.isEmpty()) {

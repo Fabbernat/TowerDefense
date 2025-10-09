@@ -21,6 +21,10 @@ public class ValidCommands {
           "holyPaladins", "necromancer", "sorcerer", "musketeer"
   );
 
+  private static final Set<String> enemies = Set.of(
+          "goblin", "orc", "wulf"
+  );
+
   private static final Set<String> battleActionsWith0 = Set.of(
           "viewWaveLaneEnemiesToCome", "callWave",
           "clickOnFirstSpell", "putFirstSpell",
@@ -40,6 +44,9 @@ public class ValidCommands {
 
   public static final Set<String> TOWERS =
           toUnmodifiableLowercaseSet(towers);
+
+  public static final Set<String> ENEMIES =
+          toUnmodifiableLowercaseSet(enemies);
 
   public static final Set<String> BATTLE_ACTIONS0 =
           toUnmodifiableLowercaseSet(battleActionsWith0);
