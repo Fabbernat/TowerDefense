@@ -8,26 +8,33 @@ import java.util.Set;
 
 public class ValidCommandsReceiverTests {
 
+  static String farewellMessage = "Goodbye Defender!";
+
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Kingdom Rush CLI started. Type 'help' to get the list of available commands. Examples: \n'add' and the tower name to add a tower; \n'kill' and the enemy name to destroy an enemy; \n'exit' to quit.");
-
+    report();
     while (true) {
+      if (currentWave > 14) {
+        break;
+      }
+
       System.out.print("> ");
       String input = scanner.nextLine().trim();
       input = input.toLowerCase();
 
-      String farewellMessage = "Goodbye Defender!";
-      if (currentWave > 15) {
-        System.out.println("Game finished! " + farewellMessage);
-        break;
-      }
       if ("exit".equals(input) || "quit".equals(input)) {
         System.out.println(farewellMessage);
         break;
       }
 
       handleCommand(input);
+    }
+    System.out.println("Press any key to exit...");
+    try {
+      System.in.read();
+    } catch (Exception e) {
+      e.printStackTrace();
     }
   }
 
@@ -74,6 +81,10 @@ public class ValidCommandsReceiverTests {
         if ("callwave".equals(cmd))
           ++currentWave;
         report("Executed battle action: `" + cmd + "`");
+        if (currentWave > 14) {
+          System.out.println("Game finished! " + farewellMessage);
+          return;
+        }
         return;
       }
     }
@@ -87,6 +98,7 @@ public class ValidCommandsReceiverTests {
 
         if (enemy.isEmpty()) {
           System.out.println("Invalid format. Example: " + cmd + ' ' + exampleEnemy);
+          return;
         }
         if (enemies.contains(enemy)) {
           int bountyGold = 50;
@@ -142,6 +154,13 @@ public class ValidCommandsReceiverTests {
   private static int gold = 700;
   private static String tabulators = "\t\t\t\t\t\t\t\t";
 
+    /**
+     * Reports the current status: hearts, gold, wave.
+     * * Overloadable method with helper fields declared above
+     **/
+    private static void report() {
+      System.out.println("|--- " + hearts + " hearts | " + gold + " gold | " + currentWave + "th wave" + " ---|" + tabulators + "\n");
+    }
 
   /**
    * Reports the message passed in parameter along with hearts, gold, wave and other metadata.
