@@ -12,7 +12,7 @@ public class ValidCommandsReceiverTests {
 
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
-    System.out.println("Kingdom Rush CLI started. Type 'help' to get the list of available commands. Examples: \n'add' and the tower name to add a tower; \n'kill' and the enemy name to destroy an enemy; \n'exit' to quit.");
+    System.out.println("Kingdom Rush CLI started. Type 'help' to get the list of available commands. Examples: \n'add <tower_name>' to add a tower; \n'kill <enemy_name>' to destroy an enemy; \n'exit' to quit.");
     report();
     while (true) {
       if (currentWave > 14) {
