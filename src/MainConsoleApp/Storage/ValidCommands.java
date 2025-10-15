@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:src/MainConsoleApp/Storage/ValidCommands.java
 package MainConsoleApp.Storage;
+========
+package Kr.CliInputReceiver;
+>>>>>>>> origin/master:src/Kr/CliInputReceiver/ValidCommands.java
 
 import java.util.*;
 import java.util.stream.Collectors;

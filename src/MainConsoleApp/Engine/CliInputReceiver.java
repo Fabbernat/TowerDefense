@@ -1,6 +1,12 @@
+<<<<<<<< HEAD:src/MainConsoleApp/Engine/CliInputReceiver.java
 package MainConsoleApp.Engine;
 
 import MainConsoleApp.Storage.ValidCommands;
+========
+package Kr.CliInputReceiver.Tests;
+
+import Kr.CliInputReceiver.ValidCommands;
+>>>>>>>> origin/master:src/Kr/CliInputReceiver/Tests/ValidCommandsReceiverTests.java
 
 import java.util.Scanner;
 import java.util.Set;
@@ -14,7 +20,11 @@ public class CliInputReceiver {
 
   public static void run() {
     Scanner scanner = new Scanner(System.in);
+<<<<<<<< HEAD:src/MainConsoleApp/Engine/CliInputReceiver.java
     log("Kingdom Rush CLI started. Type 'help' to get the list of available commands. Examples: \n'add' and the tower name to add a tower; \n'kill' and the enemy name to destroy an enemy; \n'exit' to quit.");
+========
+    System.out.println("Kingdom Rush CLI started. Type 'help' to get the list of available commands. Examples: \n'add <tower_name>' to add a tower; \n'kill <enemy_name>' to destroy an enemy; \n'exit' to quit.");
+>>>>>>>> origin/master:src/Kr/CliInputReceiver/Tests/ValidCommandsReceiverTests.java
     report();
     while (true) {
       if (currentWave > 14) {
