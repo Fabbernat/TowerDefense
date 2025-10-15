@@ -11,7 +11,7 @@ public class RandomGenerator {
 
     }
 
-    static void main() {
+    public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
 
             System.out.println("Random: int between 1 and 11: " + RandomGenerator.getRandomIntBetween(0, 5));
