@@ -1,6 +1,6 @@
-package MainConsoleApp;
+package Kr.MainConsoleApp;
 
-import static MainConsoleApp.Engine.CliInputReceiver.run;
+import static Kr.MainConsoleApp.Engine.CliInputReceiver.run;
 
 public class App {
 
