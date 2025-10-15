@@ -1,4 +1,4 @@
-package CliInputReceiver;
+package MainConsoleApp.Storage;
 
 import java.util.*;
 import java.util.stream.Collectors;

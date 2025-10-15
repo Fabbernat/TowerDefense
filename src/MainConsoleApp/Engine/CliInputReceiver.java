@@ -1,18 +1,20 @@
-package CliInputReceiver.Tests;
+package MainConsoleApp.Engine;
 
-import CliInputReceiver.ValidCommands;
+import MainConsoleApp.Storage.ValidCommands;
 
 import java.util.Scanner;
 import java.util.Set;
 
+import static MainConsoleApp.App.log;
 
-public class ValidCommandsReceiverTests {
+
+public class CliInputReceiver {
 
   static String farewellMessage = "Goodbye Defender!";
 
-  public static void main(String[] args) {
+  public static void run() {
     Scanner scanner = new Scanner(System.in);
-    System.out.println("Kingdom Rush CLI started. Type 'help' to get the list of available commands. Examples: \n'add' and the tower name to add a tower; \n'kill' and the enemy name to destroy an enemy; \n'exit' to quit.");
+    log("Kingdom Rush CLI started. Type 'help' to get the list of available commands. Examples: \n'add' and the tower name to add a tower; \n'kill' and the enemy name to destroy an enemy; \n'exit' to quit.");
     report();
     while (true) {
       if (currentWave > 14) {
@@ -24,13 +26,13 @@ public class ValidCommandsReceiverTests {
       input = input.toLowerCase();
 
       if ("exit".equals(input) || "quit".equals(input)) {
-        System.out.println(farewellMessage);
+        log(farewellMessage);
         break;
       }
 
       handleCommand(input);
     }
-    System.out.println("Press any key to exit...");
+    log("Press any key to exit...");
     try {
       System.in.read();
     } catch (Exception e) {
@@ -46,13 +48,13 @@ public class ValidCommandsReceiverTests {
       return;
 
     if (input.equals("help")) {
-        System.out.println("Available commands:" + ValidCommands.ALL_COMMANDS);
+        log("Available commands:" + ValidCommands.ALL_COMMANDS);
         return;
     }
 
     // First, check simple base commands
     if (ValidCommands.BASE_COMMANDS.contains(input)) {
-      System.out.println("Executed base command: " + input);
+      log("Executed base command: " + input);
       return;
     }
 
@@ -63,12 +65,12 @@ public class ValidCommandsReceiverTests {
         if (isInteger(numPart)) {
           int n = Integer.parseInt(numPart);
           if (n >= 1 && n <= 3) {
-            System.out.println("Executed slot command: " + cmd + " on slot " + n);
+            log("Executed slot command: " + cmd + " on slot " + n);
           } else {
-            System.out.println("Invalid slot number (must be 1, 2, or 3).");
+            log("Invalid slot number (must be 1, 2, or 3).");
           }
         } else {
-          System.out.println("Invalid format. Example: " + cmd + "1");
+          log("Invalid format. Example: " + cmd + "1");
         }
         return;
       }
@@ -82,7 +84,7 @@ public class ValidCommandsReceiverTests {
           ++currentWave;
         report("Executed battle action: `" + cmd + "`");
         if (currentWave > 14) {
-          System.out.println("Game finished! " + farewellMessage);
+          log("Game finished! " + farewellMessage);
           return;
         }
         return;
@@ -97,7 +99,7 @@ public class ValidCommandsReceiverTests {
         String exampleEnemy = enemies.iterator().next();
 
         if (enemy.isEmpty()) {
-          System.out.println("Invalid format. Example: " + cmd + ' ' + exampleEnemy);
+          log("Invalid format. Example: " + cmd + ' ' + exampleEnemy);
           return;
         }
         if (enemies.contains(enemy)) {
@@ -105,7 +107,7 @@ public class ValidCommandsReceiverTests {
           report("Killed enemy " + enemy + " giving you " + bountyGold + " gold.");
           gold += 50;
         } else {
-          System.out.println("Invalid enemy. Must be one of these: \n" + enemies);
+          log("Invalid enemy. Must be one of these: \n" + enemies);
         }
         return;
       }
@@ -121,17 +123,17 @@ public class ValidCommandsReceiverTests {
             gold -= 100; // TODO gold -= tower.price();
             report("Placed tower " + tower + " at position " + pos);
           } else {
-            System.out.println("Invalid position (must be 0–30).");
+            log("Invalid position (must be 0–30).");
           }
         } else {
-          System.out.println("Invalid format. Example: " + tower + " 5");
+          log("Invalid format. Example: " + tower + " 5");
         }
         return;
       }
     }
 
     // If nothing matched
-    System.out.println("Unknown command: " + input);
+    log("Unknown command: " + input);
   }
 
   private static String getRemainder(String input, String cmd) {
@@ -159,7 +161,7 @@ public class ValidCommandsReceiverTests {
      * * Overloadable method with helper fields declared above
      **/
     private static void report() {
-      System.out.println("|--- " + hearts + " hearts | " + gold + " gold | " + currentWave + "th wave" + " ---|" + tabulators + "\n");
+      log("|--- " + hearts + " hearts | " + gold + " gold | " + currentWave + "th wave" + " ---|" + tabulators + "\n");
     }
 
   /**
@@ -170,15 +172,13 @@ public class ValidCommandsReceiverTests {
 
       String longMessage = "|--- " + hearts + " hearts | " + gold + " gold | " + currentWave + "th wave" + " ---|" + tabulators + "\n" +
               message;
-    System.out.println(longMessage);
+    log(longMessage);
   }
 
   private void report(String message, int heartsLoss) {
 
-    StringBuilder builder = new StringBuilder();
     hearts = Math.max(0, hearts - heartsLoss);
-    builder.append(hearts).append(" hearts | ").append(gold).append(" gold | ").append(currentWave).append("th wave ").append(tabulators).append("\n")
-            .append(message);
-    System.out.println(builder);
+    String longMessage = "|--- " + hearts + " hearts | " + gold + " gold | " + currentWave + "th wave " + tabulators + "\n" + message;
+    log(longMessage);
   }
 }
