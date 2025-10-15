@@ -34,11 +34,7 @@ public class CliInputReceiver {
       handleCommand(input);
     }
     log("Press any key to exit...");
-    try {
-      System.in.read();
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    scanner.nextLine();
   }
 
   static int currentWave = 1;
