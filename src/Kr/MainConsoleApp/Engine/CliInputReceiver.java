@@ -11,6 +11,7 @@ import static Kr.MainConsoleApp.App.log;
 public class CliInputReceiver {
 
   static String farewellMessage = "Goodbye Defender!";
+  static int currentWave = 1;
 
   public static void run() {
     Scanner scanner = new Scanner(System.in);
@@ -37,7 +38,6 @@ public class CliInputReceiver {
     scanner.nextLine();
   }
 
-  static int currentWave = 1;
 
   private static void handleCommand(String input) {
 
@@ -151,7 +151,7 @@ public class CliInputReceiver {
   // fields for report
   private static int hearts = 20;
   private static int gold = 700;
-  private static String tabulators = "\t\t\t\t\t\t\t\t";
+  private static final String tabulators = "\t\t\t\t\t\t\t\t";
 
     /**
      * Reports the current status: hearts, gold, wave.
