@@ -1,9 +1,17 @@
 {
   "1": {
+    "campaignLevel": 2,
+    "stars": 3,
+    "techUpgrades": "000101"
   },
   "2": {
+    "campaignLevel": 6,
+    "stars": 12,
+    "techUpgrades": "222202"
   },
   "3": {
-
+    "campaignLevel": 15,
+    "stars": 30,
+    "techUpgrades": "433323"
   }
 }
