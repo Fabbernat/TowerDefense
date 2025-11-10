@@ -3,7 +3,7 @@ package Kr;
 public class RandomGenerator {
     public static int getRandomIntBetween(int min, int max) {
         if (max < min) {
-            int  temp = min;
+            int temp = min;
             min = max;
             max = temp;
         }
@@ -13,8 +13,9 @@ public class RandomGenerator {
 
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
-
-            System.out.println("Random: int between 1 and 11: " + RandomGenerator.getRandomIntBetween(0, 5));
+            int lowerBound = 0;
+            int upperBound = 1;
+            System.out.println("Random: int between " + lowerBound + " and " + upperBound + " (including limits): " + RandomGenerator.getRandomIntBetween(lowerBound, upperBound));
         }
     }
 }
