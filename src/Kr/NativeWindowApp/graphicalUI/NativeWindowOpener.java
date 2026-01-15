@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class NativeWindowOpener {
 
@@ -96,15 +97,23 @@ public class NativeWindowOpener {
       int backGroundSpriteHeightAndWidth = 82;
       int gapToNextBackGroundSpriteRow = backGroundSpriteHeightAndWidth * 2;
 
-      int randomSprite = RandomGenerator.getRandomIntBetween(0, 5); // TODO add this to generation logic.
       for (int y = 0; y < Window.height; y += backGroundSpriteHeightAndWidth) {
-        if (y % gapToNextBackGroundSpriteRow == 0) {
+          ArrayList<String> territory = new ArrayList<>(java.util.List.of(
+                  "assets/sprites/territory/beach.png",
+                  "assets/sprites/territory/groundAsset.png",
+                  "assets/sprites/territory/lowerBorderOfThePath.png",
+                  "assets/sprites/territory/sandTower.png",
+                  "assets/sprites/territory/sandyDunes.png",
+                  "assets/sprites/territory/upperBorderOfThePath.png"
+          ));
+
+          if (y % gapToNextBackGroundSpriteRow == 0) {
           for (int x = 0; x < Window.width; x += backGroundSpriteHeightAndWidth) {
-            sprites.add(new Sprite("assets/sprites/territory/upperBorderOfThePath.png", x, y, 0, 0));
+            sprites.add(new Sprite(territory.get(RandomGenerator.getRandomIntBetween(0, 5)), x, y, 0, 0));
           }
         } else {
           for (int x = 0; x < Window.width; x += backGroundSpriteHeightAndWidth) {
-            sprites.add(new Sprite("assets/sprites/territory/lowerBorderOfThePath.png", x, y, 0, 0));
+            sprites.add(new Sprite(territory.get(RandomGenerator.getRandomIntBetween(0, 5)), x, y, 0, 0));
           }
         }
       }

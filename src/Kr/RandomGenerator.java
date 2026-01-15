@@ -14,7 +14,7 @@ public class RandomGenerator {
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
             int lowerBound = 0;
-            int upperBound = 1;
+            int upperBound = 100;
             System.out.println("Random: int between " + lowerBound + " and " + upperBound + " (including limits): " + RandomGenerator.getRandomIntBetween(lowerBound, upperBound));
         }
     }
